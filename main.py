@@ -7,6 +7,7 @@ from pymongo import MongoClient
 from werkzeug.utils import secure_filename
 import base64
 from datetime import datetime,date
+from PIL import Image
 
 client = MongoClient("mongodb://sonali:typito1@ds239692.mlab.com:39692/heroku_bp7xlj7c", retryWrites=False)
 db = client.heroku_bp7xlj7c
@@ -33,7 +34,7 @@ def get_tags(path):
 @app.route("/")
 def main():
 
-    return render_template("myview.html",image_names=db.images.distinct('image'))
+    return render_template("myview.html",image_names=db.images.distinct('image',allowDiskUse=True))
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -47,7 +48,11 @@ def upload():
             destination = "".join([target, filename])
             upload.save(destination)
             tags = get_tags(destination)
-            with open(destination, "rb") as image:
+            foo = Image.open(destination)
+            foo = foo.resize((240,240),Image.ANTIALIAS)
+            os.remove(destination)
+            foo.save(destination)
+            with open(destination,"rb") as image:
                 image_string = base64.b64encode(image.read())
 
             today = datetime.today().strftime("%d-%m-%Y")
@@ -61,20 +66,12 @@ def search():
     image_db_table = db.images
     tag_to_search = request.form['Search']
     print(tag_to_search)
-    date_to_search = request.form['date']
-    print(date_to_search)
-    if tag_to_search == "" and date_to_search == "":
-        return render_template("myview.html", image_names=db.images.distinct('image'))
-    elif tag_to_search == "":
-        images = image_db_table.find({"date":date_to_search})
-        return render_template("myview.html", image_names=images.distinct('image'))
 
-    elif date_to_search == "":
-        images = image_db_table.find( {"tags": tag_to_search})
-        return render_template("myview.html", image_names=images.distinct('image'))
-    else:
-        images = image_db_table.find({"tags": tag_to_search,"date":date_to_search})
-        return render_template("myview.html",image_names=images.distinct('image'))
+    if tag_to_search == "" :
+        return render_template("myview.html", image_names=db.images.distinct('image'))
+
+    images = image_db_table.find({"tags": tag_to_search})
+    return render_template("myview.html",image_names=images.distinct('image'))
 
 if __name__ == '__main__':
     app.run()
