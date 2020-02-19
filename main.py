@@ -63,14 +63,54 @@ def upload():
 
 @app.route('/search',methods=['POST'])
 def search():
+    #tags:cats,dogs date:some from:date to date
     image_db_table = db.images
-    tag_to_search = request.form['Search']
-    print(tag_to_search)
+    features_to_search = request.form['Search'].split()
+    dict = {}
 
-    if tag_to_search == "" :
+    for feature in features_to_search:
+        key,value = feature.split(":")
+        dict[key] = value
+    print(dict)
+
+    if not dict:
         return render_template("myview.html", image_names=db.images.distinct('image')[:31])
+    if "from" in dict:
+        images = image_db_table.find({"tags":dict["tags"],"date":{"$gte":dict["from"],"$lt":dict["to"]}})
+        return render_template("myview.html", image_names=images.distinct('image')[:31])
+    if "date" in dict:
+        d,m,y = dict["date"].split("-")
+        image_list = []
+        if d == "*":
+            for i in range(1,32):
+                if len(str(i))==1:
+                    new_date = "0"+str(i)+"-"+m+"-"+y
+                else:
+                    new_date = str(i) + "-" + m + "-" + y
+                images = image_db_table.find({"tags":dict["tags"],"date":new_date}).distinct('image')
+                if images:
+                    image_list.extend(images)
+        elif m == "*":
+            for i in range(1,13):
+                if len(str(i))==1:
+                    new_date = d+"-"+"0"+str(i)+"-"+y
+                else:
+                    new_date = d + "-" + str(i) + "-" + y
+                images = image_db_table.find({"tags": dict["tags"], "date": new_date}).distinct('image')
+                if images:
+                    image_list.extend(images)
+        elif y=="*":
+            for i in range(1997,date.today().isocalendar()[0]+1):
+                new_date = d + "-" + m + "-" + str(i)
+                images = image_db_table.find({"tags": dict["tags"], "date": new_date}).distinct('image')
+                if images:
+                    image_list.extend(images)
+        else:
+            image_list = image_db_table.find({"tags":dict["tags"],"date":dict["date"]}).distinct('image')
+        print(image_list)
+        return render_template("myview.html", image_names=image_list[:31])
 
-    images = image_db_table.find({"tags": tag_to_search})
+    images = image_db_table.find({"tags": dict["tags"]})
     return render_template("myview.html",image_names=images.distinct('image')[:31])
 
 if __name__ == '__main__':
