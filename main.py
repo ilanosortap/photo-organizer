@@ -8,8 +8,8 @@ from werkzeug.utils import secure_filename
 import base64
 from datetime import datetime
 
-client = MongoClient("mongodb://heroku_bp7xlj7c:4s9mq39u50i13upb7iqtevnk4e@ds239692.mlab.com:39692/heroku_bp7xlj7c")
-db = client.stockImage
+client = MongoClient("mongodb://sonali:typito1@ds239692.mlab.com:39692/heroku_bp7xlj7c")
+db = client.heroku_bp7xlj7c
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 app = Flask(__name__)
 

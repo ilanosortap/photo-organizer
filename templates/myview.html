@@ -14,14 +14,17 @@
 
 <body class="no-js">
   <h2 class="hero-heading">Stock Image Service</h2>
-  <form class="form-container form-container-1"  action = "http://127.0.0.1:5000/upload" method = "POST" enctype = "multipart/form-data">
+  <form class="form-container form-container-1"  action = "/upload" method = "POST" enctype = "multipart/form-data">
      <input class="file-1" type = "file" name = "upload" multiple/>
-     <input class="button" type = "submit" name="upload"/>
+     <button type="submit" class="button" name="upload">
+      <span class="button-text-1">Upload</span>
+    </button>
   </form>
-  <form class="form-container form-container-2" action = "http://127.0.0.1:5000/search" method="POST" enctype="multipart/form-data">
-    <input class="input-1" type="text" name="Search"/>
-    <input type="date" style="width: 165px;  margin-right: 20px" name="date"/>
-    <input class="button" type="submit" name="Search"/>
+  <form class="form-container" action = "/search" method="POST" enctype="multipart/form-data">
+    <input value="" name="Search" type="text" class="input-2" style="width:40%;margin-left: 89px">
+    <button type="submit" class="button" name="Search" style="display: inline-block">
+      <span class="button-text-3">Search</span>
+    </button>
 </form>
   <div class="container cats-for-adoption-wrapper" id="adoption">
 
