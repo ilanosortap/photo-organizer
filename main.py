@@ -6,7 +6,7 @@ import json
 from pymongo import MongoClient
 from werkzeug.utils import secure_filename
 import base64
-from datetime import datetime
+from datetime import datetime,date
 
 client = MongoClient("mongodb://sonali:typito1@ds239692.mlab.com:39692/heroku_bp7xlj7c")
 db = client.heroku_bp7xlj7c
@@ -49,9 +49,9 @@ def upload():
             tags = get_tags(destination)
             with open(destination, "rb") as image:
                 image_string = base64.b64encode(image.read())
-            now = datetime.now()
-            date = now.date()
-            image_db_table.insert({'image': image_string.decode('utf-8'), 'tags': tags,'date': date})   #insert into database mongo db
+
+            today = datetime.today().strftime("%d-%m-%Y")
+            image_db_table.insert({'image': image_string.decode('utf-8'), 'tags': tags,'date': today})   #insert into database mongo db
             os.remove(destination)
 
         return render_template("myview.html",image_names=db.images.distinct('image'))
