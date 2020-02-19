@@ -1,0 +1,591 @@
+/* Text Elements */
+
+h1.header-greeting {
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  color: #fff;
+  text-align: center;
+  font-weight: 200;
+  font-size: 22px;
+  font-family: 'Chelsea Market', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+h1#info-greeting {
+  color: #535353;
+}
+
+h2.hero-heading {
+  margin-bottom: 0;
+  padding: 50px 10px 10px;
+  color: #00a3d7;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Chelsea Market', cursive;
+}
+
+h2 span.highlight-blue {
+  color: #4a6dd7;
+}
+
+h3 {
+  font-family: 'Chelsea Market', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+h3.footer-section-header {
+  padding-top: 30px;
+  color: #fff;
+  text-align: center;
+}
+
+h6.footer-logo {
+  display: inline-block;
+  margin-bottom: 0;
+  color: #b3b3b3;
+  font-size: 14px;
+}
+
+p.paragraph.mission-statement {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  max-width: 800px;
+  text-align: center;
+}
+
+p.paragraph {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  max-width: 1200px;
+  color: #575757;
+  font-family: 'Roboto', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+p.paragraph.header-message {
+  margin-bottom: 0;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #00152a;
+  font-size: 15px;
+}
+
+p.paragraph.footer-paragraph {
+  color: #b6b6b6;
+  text-align: center;
+}
+
+/* Interaction Elements */
+
+input[type=text].input-2 {
+  margin-right: 150px;
+  margin-left: 20px;
+  width: 30%;
+}
+
+/* Layout Elements */
+
+.container.menu-container {
+  display: grid;
+  margin-top: 20px;
+  margin-right: 0;
+
+  grid-template-columns: repeat(3 , auto);
+  grid-template-rows: auto;
+  grid-row-gap: 0;
+  grid-column-gap: 0;
+}
+
+.container.header-container {
+  display: grid;
+  margin-top: 20px;
+
+  grid-template-columns: auto;
+  grid-template-rows: repeat(2 , auto);
+  justify-items: center;
+}
+
+.container.header-image-container {
+  min-height: 350px;
+  background-image: url('../images/cats/sleepy-cat.jpg?id=undefined&cache=1555405312715');
+  background-position: center top;
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  background-blend-mode: normal;
+}
+
+.container.header-message-container {
+  float: right;
+  min-height: 200px;
+  max-width: none;
+  max-height: none;
+  height: auto;
+  background-color: rgba(16, 150, 247, .89);
+}
+
+.container#info-heading {
+  background-image: url('../images/gardens/garden.jpg?id=undefined&cache=1555405289114');
+}
+
+.container#info-message-container {
+  background-color: rgba(255, 255, 255, .91);
+}
+
+.container.social-box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display:    -moz-box;
+  display: -ms-flexbox;
+  display:         flex;
+  -ms-flex-pack: center;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 40px;
+
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+          justify-content: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
+.container.contac-us-footer {
+  width: 50%;
+}
+
+.container.section-break {
+  margin-top: 60px;
+  padding-bottom: 60px;
+  background-color: #e5e5e5;
+}
+
+.container.filmstrip-container {
+  padding-top: 30px;
+  background-color: #57316d;
+}
+
+.container.container-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display:    -moz-box;
+  display: -ms-flexbox;
+  display:         flex;
+  -ms-flex-pack: center;
+  -ms-flex-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+          align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+          align-content: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
+.container.contact-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display:    -moz-box;
+  display: -ms-flexbox;
+  display:         flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #515151;
+
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+          align-items: center;
+}
+
+.container.location {
+  width: 50%;
+}
+
+.container.text-container {
+  margin-right: auto;
+  margin-bottom: 60px;
+  margin-left: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  max-width: 1040px;
+}
+
+.container.cats-for-adoption-wrapper {
+  display: grid;
+  -ms-flex-pack: center;
+  margin-top: 80px;
+  padding-right: 10px;
+  padding-left: 10px;
+
+  grid-template-columns: repeat(auto-fill, minmax(200px, 400px));
+  grid-template-rows: auto;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+          justify-content: center;
+  grid-auto-columns: 21px;
+}
+
+a.social-image {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  max-width: 40px;
+  background-color: #55b8e2;
+}
+
+div.responsive-picture.film-strip {
+  display: inline-block;
+  max-width: 33.3%;
+  width: 33.3%;
+}
+
+a.responsive-picture.footer-logo {
+  display: inline-block;
+  padding-top: 0;
+  padding-right: 10px;
+  max-width: 40px;
+}
+
+div.responsive-picture.picture-1 {
+  margin-bottom: 20px;
+  max-width: none;
+}
+
+div.responsive-picture.picture-2 {
+  margin-bottom: 20px;
+  max-width: none;
+}
+
+div.responsive-picture.picture-3 {
+  max-width: none;
+}
+
+div.responsive-picture.sponsors-image {
+  max-width: none;
+}
+
+a.responsive-picture.picture-link-1 {
+  max-width: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+input[type=file].file-1 {
+  margin-right: 150px;
+  margin-left: 20px;
+  width: 50%;
+}
+
+@media screen and (min-width: 40rem) {
+  /* Text Elements */
+
+  h1.header-greeting {
+    font-size: 25px;
+  }
+
+  h3.footer-section-header {
+    font-size: 24px;
+  }
+
+  p.paragraph.mission-statement {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  p.paragraph.footer-paragraph {
+    max-width: 800px;
+  }
+
+  p.paragraph {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* Layout Elements */
+
+  .container.header-container {
+    justify-items: auto;
+    grid-template-columns: repeat(2 , auto);
+    grid-template-rows: auto;
+  }
+
+  .container.header-message-container {
+    margin-top: 30px;
+    margin-right: 50px;
+    max-width: 60%;
+  }
+
+  .container.header-image-container {
+    min-height: 400px;
+    background-position: center center;
+  }
+
+  .container.menu-container {
+    -ms-flex-pack: end;
+    -ms-flex-align: baseline;
+    margin-top: 20px;
+
+    justify-items: flex-end;
+    grid-template-areas: '. . .menu-link-1 menu-link-2. menu-link3.';
+    grid-template-columns: repeat(5 , auto);
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+       -moz-box-align: baseline;
+            align-items: baseline;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+       -moz-box-pack: end;
+            justify-content: flex-end;
+  }
+
+  .container.contact-container {
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-align: start;
+
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+       -moz-box-orient: horizontal;
+       -moz-box-direction: normal;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+       -moz-box-align: start;
+            align-items: flex-start;
+  }
+
+  .container.contac-us-footer {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .container.info-image-container {
+    display: grid;
+
+    grid-template-areas: '. picture-1 picture-1 .' '. picture-2 picture-3 .' '. picture-2 . .';
+    grid-template-columns: 1fr repeat(2 , auto) 1fr;
+    grid-template-rows: repeat(3 , auto);
+    grid-auto-rows: 20px;
+    grid-auto-columns: 20px;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+  }
+
+  .container.text-container {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .container.cats-for-adoption-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
+  }
+
+  div.responsive-picture.film-strip {
+    max-width: 16.6666%;
+  }
+
+  div.responsive-picture.picture-1 {
+    margin-bottom: 0;
+    max-width: 1200px;
+
+    grid-area: picture-1;
+  }
+
+  div.responsive-picture.picture-2 {
+    margin-bottom: 0;
+    max-width: 900px;
+
+    grid-area: picture-2;
+  }
+
+  div.responsive-picture.picture-3 {
+    max-width: 1943px;
+
+    grid-area: picture-3;
+  }
+
+  div.responsive-picture.sponsors-image {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1040px;
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  /* Text Elements */
+
+  h2.hero-heading {
+    padding-top: 80px;
+    font-weight: 800;
+    font-size: 28px;
+    font-family: 'Brush Script MT', cursive;
+  }
+
+  p.paragraph.footer-paragraph {
+    max-width: 400px;
+    color: #c3c3c3;
+  }
+
+  p.paragraph {
+    color: #575757;
+  }
+
+  /* Interaction Elements */
+
+  form.form-container.form-container-1 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display:    -moz-box;
+    display: -ms-flexbox;
+    display:         flex;
+  }
+
+  input[type=text].input-2 {
+    display: inline-block;
+    float: none;
+    margin-top: 20px;
+    margin-right: 0;
+    margin-left: 10px;
+    width: 100%;
+    height: 30px;
+  }
+
+  /* Layout Elements */
+
+  body.body-1 {
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .container.header-message-container {
+    max-width: 500px;
+  }
+
+  .container.header-container {
+    grid-template-columns: 1fr repeat(2 , 500px) 1fr;
+    grid-template-areas: '. logo menu .';
+  }
+
+  .container.menu-container {
+    grid-area: menu;
+  }
+
+  .container.filmstrip-container {
+    padding-top: 20px;
+  }
+
+  .container.container-1 {
+    padding-top: 40px;
+  }
+
+  .container.header-image-container {
+    min-height: 600px;
+  }
+
+  .container.location {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 500px;
+  }
+
+  .container.contac-us-footer {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 500px;
+  }
+
+  .container.text-container {
+    margin-bottom: 60px;
+    padding-right: 10px;
+    padding-left: 10px;
+    max-width: 1040px;
+  }
+
+  .container.cats-for-adoption-wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 2000px;
+
+    grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
+  }
+
+  .container.info-container {
+    padding-left: 0;
+  }
+
+  div.responsive-picture.picture-1 {
+    max-width: none;
+  }
+
+  div.responsive-picture.picture-2 {
+    max-width: none;
+  }
+
+  div.responsive-picture.picture-3 {
+    max-width: 400px;
+  }
+
+  div.responsive-picture.sponsors-image {
+    margin-top: 40px;
+  }
+
+  input[type=file].file-1 {
+    display: block;
+    float: none;
+    margin: 20px 0 1rem 90px;
+    width: 40%;
+    height: 30px;
+  }
+
+  button.button {
+    display: block;
+    margin-top: 20px;
+    margin-right: 110px;
+    margin-left: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 70px;
+    height: 30px;
+  }
+
+  button span.button-text-1 {
+    font-size: .75rem;
+  }
+
+  button span.button-text-2 {
+    font-size: .75rem;
+  }
+}
