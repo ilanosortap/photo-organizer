@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, flash
 import requests
 from flask import request,render_template
 import json
@@ -8,11 +8,16 @@ from werkzeug.utils import secure_filename
 import base64
 from datetime import datetime,date
 from PIL import Image
+from flask_toastr import Toastr
+
+
 
 client = MongoClient("mongodb://sonali:typito1@ds239692.mlab.com:39692/heroku_bp7xlj7c", retryWrites=False)
 db = client.heroku_bp7xlj7c
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 app = Flask(__name__)
+toastr = Toastr(app)
+app.secret_key = "super secret key"
 
 def get_tags(path):
     api_key = 'acc_dba37e986089381'
@@ -43,10 +48,15 @@ def upload():
             os.mkdir(target)     # create folder if not exits
     image_db_table = db.images  # database table name
     if request.method == 'POST':
+        if not request.files.getlist("upload"):
+            flash("select some images to upload")
         for upload in request.files.getlist("upload"): #multiple image handel
             filename = secure_filename(upload.filename)
             destination = "".join([target, filename])
-            upload.save(destination)
+            try:
+                upload.save(destination)
+            except:
+                flash("select some images to upload")
             tags = get_tags(destination)
             foo = Image.open(destination)
             foo = foo.resize((240,240),Image.ANTIALIAS)
@@ -65,12 +75,19 @@ def upload():
 def search():
     #tags:cats,dogs date:some from:date to date
     image_db_table = db.images
-    features_to_search = request.form['Search'].split()
+    try:
+        features_to_search = request.form['Search'].split()
+    except:
+        flash("search query not in write format. Should be in key-value pairs, for eg: tags:dog from:19-02-2020 to:19-02-2020")
     dict = {}
 
     for feature in features_to_search:
-        key,value = feature.split(":")
-        dict[key] = value
+        try:
+            key,value = feature.split(":")
+            dict[key] = value
+        except:
+            flash("search query not in write format. Should be in key-value pairs, for eg: tags:dog from:19-02-2020 to:19-02-2020")
+
     print(dict)
 
     if not dict:
@@ -114,5 +131,7 @@ def search():
     return render_template("myview.html",image_names=images.distinct('image')[:31])
 
 if __name__ == '__main__':
+    app.debug = True
     app.run()
+    toastr.init_app(app)
 

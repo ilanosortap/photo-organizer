@@ -2,6 +2,9 @@
 <html>
 
 <head>
+  {{ toastr.include_jquery() }}
+    {{ toastr.include_toastr_css() }}
+    {{ toastr.message() }}
   <meta charset="utf-8">
   <title>Stock image service</title>
   <link rel="stylesheet" href="../static/css/foundation.min.css">
@@ -13,6 +16,7 @@
 </head>
 
 <body class="no-js">
+{{ toastr.include_toastr_js() }}
   <h2 class="hero-heading">Stock Image Service</h2>
   <form class="form-container form-container-1"  action = "/upload" method = "POST" enctype = "multipart/form-data">
      <input class="file-1" type = "file" name = "upload" multiple/>
