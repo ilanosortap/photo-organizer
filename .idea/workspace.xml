@@ -14,13 +14,17 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="Python Script" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1Xt4plTg6Iulp0btV3kC96YvJIi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -29,6 +33,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -112,7 +117,7 @@
       <workItem from="1581857056621" duration="299000" />
       <workItem from="1581857416715" duration="13808000" />
       <workItem from="1581946126606" duration="9553000" />
-      <workItem from="1582107825693" duration="3651000" />
+      <workItem from="1582107825693" duration="4368000" />
     </task>
     <servers />
   </component>
@@ -133,10 +138,10 @@
       <screen x="0" y="23" width="1680" height="961" />
     </state>
     <state x="304" y="165" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.961@0.23.1680.961" timestamp="1581854739377" />
-    <state x="537" y="311" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582117151602">
+    <state x="537" y="311" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582118476111">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state x="537" y="311" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.957@0.23.1680.957" timestamp="1582117151602" />
+    <state x="537" y="311" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.957@0.23.1680.957" timestamp="1582118476111" />
     <state x="578" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581964022237">
       <screen x="0" y="23" width="1680" height="959" />
     </state>
