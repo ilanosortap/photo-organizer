@@ -1,2 +1,7 @@
 Flask
 Werkzeug
+requests
+pymongo
+base64
+PIL
+cloudsight
