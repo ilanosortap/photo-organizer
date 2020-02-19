@@ -34,7 +34,7 @@ def get_tags(path):
 @app.route("/")
 def main():
 
-    return render_template("myview.html",image_names=db.images.distinct('image',allowDiskUse=True).limit(30))
+    return render_template("myview.html",image_names=db.images.distinct('image',allowDiskUse=True)[:31])
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -59,7 +59,7 @@ def upload():
             image_db_table.insert({'image': image_string.decode('utf-8'), 'tags': tags,'date': today})   #insert into database mongo db
             os.remove(destination)
 
-        return render_template("myview.html",image_names=db.images.distinct('image').limit(30))
+        return render_template("myview.html",image_names=db.images.distinct('image')[:31])
 
 @app.route('/search',methods=['POST'])
 def search():
@@ -68,10 +68,10 @@ def search():
     print(tag_to_search)
 
     if tag_to_search == "" :
-        return render_template("myview.html", image_names=db.images.distinct('image').limit(30))
+        return render_template("myview.html", image_names=db.images.distinct('image')[:31])
 
     images = image_db_table.find({"tags": tag_to_search})
-    return render_template("myview.html",image_names=images.distinct('image').limit(30))
+    return render_template("myview.html",image_names=images.distinct('image')[:31])
 
 if __name__ == '__main__':
     app.run()
