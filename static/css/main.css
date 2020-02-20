@@ -333,6 +333,15 @@ input[type=file].file-1 {
     padding-left: 0;
   }
 
+  /* Interaction Elements */
+
+  input[type=text].input-2 {
+    display: inline-block;
+    margin-right: 150px;
+    margin-left: 20px;
+    width: 50%;
+  }
+
   /* Layout Elements */
 
   .container.header-container {
@@ -440,6 +449,11 @@ input[type=file].file-1 {
     margin-right: auto;
     margin-left: auto;
     max-width: 1040px;
+  }
+
+  button.button {
+    margin-right: 40px;
+    margin-left: 30px;
   }
 }
 
@@ -570,6 +584,14 @@ input[type=file].file-1 {
     height: 30px;
   }
 
+  button span.button-text-1 {
+    font-size: .75rem;
+  }
+
+  button span.button-text-3 {
+    font-size: .75rem;
+  }
+
   button.button {
     display: inline-block;
     margin-top: 20px;
@@ -579,13 +601,5 @@ input[type=file].file-1 {
     padding-bottom: 0;
     width: 70px;
     height: 30px;
-  }
-
-  button span.button-text-1 {
-    font-size: .75rem;
-  }
-
-  button span.button-text-3 {
-    font-size: .75rem;
   }
 }

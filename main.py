@@ -3,7 +3,7 @@ from flask import Flask, flash
 import requests
 from flask import request,render_template
 import json
-from pymongo import MongoClient
+from pymongo import MongoClient,DESCENDING,ASCENDING
 from werkzeug.utils import secure_filename
 import base64
 from datetime import datetime,date
@@ -39,7 +39,7 @@ def get_tags(path):
 @app.route("/")
 def main():
 
-    return render_template("myview.html",image_names=db.images.distinct('image',allowDiskUse=True)[:31])
+    return render_template("myview.html",image_names=db.images.find().sort("date",DESCENDING).distinct('image')[:31])
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -72,7 +72,7 @@ def upload():
             image_db_table.insert({'image': image_string.decode('utf-8'), 'tags': tags,'date': today})   #insert into database mongo db
             os.remove(destination)
 
-        return render_template("myview.html",image_names=db.images.distinct('image')[:31])
+        return render_template("myview.html",image_names=db.images.find().sort("date",DESCENDING).distinct('image')[:31])
 
 @app.route('/search',methods=['POST'])
 def search():
@@ -94,43 +94,43 @@ def search():
     print(dict)
 
     if not dict:
-        return render_template("myview.html", image_names=db.images.distinct('image')[:31])
+        return render_template("myview.html", image_names=db.images.find().sort("date",DESCENDING).distinct('image')[:31])
     if "from" in dict:
-        images = image_db_table.find({"tags":dict["tags"],"date":{"$gte":dict["from"],"$lt":dict["to"]}})
+        images = image_db_table.find({"tags":dict["tags"],"date":{"$gte":dict["from"],"$lt":dict["to"]}}).sort("date",DESCENDING)
         return render_template("myview.html", image_names=images.distinct('image')[:31])
     if "date" in dict:
         d,m,y = dict["date"].split("-")
         image_list = []
         if d == "*":
-            for i in range(1,32):
+            for i in range(31,0,-1):
                 if len(str(i))==1:
                     new_date = "0"+str(i)+"-"+m+"-"+y
                 else:
                     new_date = str(i) + "-" + m + "-" + y
-                images = image_db_table.find({"tags":dict["tags"],"date":new_date}).distinct('image')
+                images = image_db_table.find({"tags":dict["tags"],"date":new_date}).sort("date",DESCENDING).distinct('image')
                 if images:
                     image_list.extend(images)
         elif m == "*":
-            for i in range(1,13):
+            for i in range(12,0,-1):
                 if len(str(i))==1:
                     new_date = d+"-"+"0"+str(i)+"-"+y
                 else:
                     new_date = d + "-" + str(i) + "-" + y
-                images = image_db_table.find({"tags": dict["tags"], "date": new_date}).distinct('image')
+                images = image_db_table.find({"tags": dict["tags"], "date": new_date}).sort("date",DESCENDING).distinct('image')
                 if images:
                     image_list.extend(images)
         elif y=="*":
-            for i in range(1997,date.today().isocalendar()[0]+1):
+            for i in range(date.today().isocalendar()[0],1969,-1):
                 new_date = d + "-" + m + "-" + str(i)
-                images = image_db_table.find({"tags": dict["tags"], "date": new_date}).distinct('image')
+                images = image_db_table.find({"tags": dict["tags"], "date": new_date}).sort("date",DESCENDING).distinct('image')
                 if images:
                     image_list.extend(images)
         else:
-            image_list = image_db_table.find({"tags":dict["tags"],"date":dict["date"]}).distinct('image')
+            image_list = image_db_table.find({"tags":dict["tags"],"date":dict["date"]}).sort("date",DESCENDING).distinct('image')
         print(image_list)
         return render_template("myview.html", image_names=image_list[:31])
 
-    images = image_db_table.find({"tags": dict["tags"]})
+    images = image_db_table.find({"tags": dict["tags"]}).sort("date",DESCENDING)
     return render_template("myview.html",image_names=images.distinct('image')[:31])
 
 if __name__ == '__main__':
