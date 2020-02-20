@@ -62,8 +62,11 @@ def upload():
             foo = foo.resize((240,240),Image.ANTIALIAS)
             os.remove(destination)
             foo.save(destination)
-            with open(destination,"rb") as image:
-                image_string = base64.b64encode(image.read())
+            try:
+                with open(destination,"rb") as image:
+                    image_string = base64.b64encode(image.read())
+            except:
+                flash("Images havent been selected to upload or the selected file is not an image")
 
             today = datetime.today().strftime("%d-%m-%Y")
             image_db_table.insert({'image': image_string.decode('utf-8'), 'tags': tags,'date': today})   #insert into database mongo db

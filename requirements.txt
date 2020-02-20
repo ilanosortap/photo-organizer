@@ -4,3 +4,4 @@ requests
 pymongo
 gunicorn
 Pillow
+flask-toastr
