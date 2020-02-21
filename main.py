@@ -11,7 +11,6 @@ from PIL import Image
 from flask_toastr import Toastr
 
 
-
 client = MongoClient("mongodb://sonali:typito1@ds239692.mlab.com:39692/heroku_bp7xlj7c", retryWrites=False)
 db = client.heroku_bp7xlj7c
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -159,10 +158,11 @@ def search():
         else:
             image_list = [i for i in list(image_db_table.find({"tags": dict["tags"]})) for j in image_list if i['image'] == j['image']]
 
-    if "desc" in dict:
-        image_list = [i for i in list(image_db_table.find({"description": dict["desc"]})) for j in image_list if i['image']==j['image']]
+    if "description" in dict:
+        image_list = [i for i in list(image_db_table.find({"description": dict["description"]})) for j in image_list if i['image']==j['image']]
     image_list = sorted(image_list[:31], key=lambda x: x["date"], reverse=True)
     return render_template("myview.html",image_names=zip([d['image'] for d in image_list],[d['tags'] for d in image_list],[d['description'] for d in image_list],[d['date'] for d in image_list]))
+
 
 if __name__ == '__main__':
     app.debug = True
