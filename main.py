@@ -31,6 +31,8 @@ def get_tags(path):
 
     js = json.loads(res.text)
     tags = []
+    if "result" not in js:
+        return "could not be tagged"
     for k in js['result']['tags']:
         if k['confidence'] > 40.0:
             tags.append(k['tag']['en'])
@@ -38,8 +40,8 @@ def get_tags(path):
 
 @app.route("/")
 def main():
-    image_list = list(db.images.find().sort("date",DESCENDING))[:31]
-    return render_template("myview.html",image_names=zip([d['image'] for d in image_list],[d['tags'] for d in image_list],[d['description'] for d in image_list]))
+    image_list = sorted(list(db.images.find())[:31], key = lambda x:x["date"], reverse=True)
+    return render_template("myview.html",image_names=zip([d['image'] for d in image_list],[d['tags'] for d in image_list],[d['description'] for d in image_list],[d['date'] for d in image_list]))
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -73,8 +75,9 @@ def upload():
             image_db_table.insert({'image': image_string.decode('utf-8'), 'tags': tags,'date': today, 'description':description})   #insert into database mongo db
             os.remove(destination)
 
-        image_list = list(db.images.find().sort("date", DESCENDING))[:31]
-        return render_template("myview.html",image_names=zip([d['image'] for d in image_list], [d['tags'] for d in image_list],[d['description'] for d in image_list]))
+        image_list = sorted(list(db.images.find())[:31], key = lambda x:x["date"], reverse=True)
+        return render_template("myview.html",image_names=zip([d['image'] for d in image_list], [d['tags'] for d in image_list],[d['description'] for d in image_list], [d['date'] for d in image_list]))
+
 
 @app.route('/search',methods=['POST'])
 def search():
@@ -96,9 +99,11 @@ def search():
 
 
     if not dict:
-        return render_template("myview.html", image_names=db.images.find().sort("date",DESCENDING).distinct()[:31])
+        image_list = sorted(list(db.images.find())[:31], key = lambda x:x["date"], reverse=True)
+        return render_template("myview.html",image_names=zip([d['image'] for d in image_list], [d['tags'] for d in image_list],[d['description'] for d in image_list], [d['date'] for d in image_list]))
 
-    image_list = list(db.images.find().sort("date",DESCENDING))
+
+    image_list = list(image_db_table.find().sort("date",DESCENDING))
 
     if "from" in dict:
         image_list = [i for i in list(image_db_table.find({"date":{"$gte":dict["from"],"$lt":dict["to"]}}).sort("date",DESCENDING)) for j in image_list if i['image'] == j['image']]
@@ -111,7 +116,7 @@ def search():
                     new_date = "0"+str(i)+"-"+m+"-"+y
                 else:
                     new_date = str(i) + "-" + m + "-" + y
-                images = image_db_table.find({"date": new_date}).sort("date", DESCENDING)
+                images = image_db_table.find({"date": new_date})
                 if images:
                     image_list = [i for i in list(images) for j in image_list if i['image'] == j['image']]
         elif m == "*":
@@ -120,24 +125,32 @@ def search():
                     new_date = d+"-"+"0"+str(i)+"-"+y
                 else:
                     new_date = d + "-" + str(i) + "-" + y
-                images = image_db_table.find({"date": new_date}).sort("date", DESCENDING)
+                images = image_db_table.find({"date": new_date})
                 if images:
                     image_list = [i for i in list(images) for j in image_list if i['image'] == j['image']]
         elif y=="*":
             for i in range(date.today().isocalendar()[0],1969,-1):
                 new_date = d + "-" + m + "-" + str(i)
-                images = image_db_table.find({"date": new_date}).sort("date", DESCENDING)
+                images = image_db_table.find({"date": new_date})
                 if images:
                     image_list =  [i for i in list(images) for j in image_list if i['image']==j['image']]
         else:
-            image_list = [i for i in list(image_db_table.find({"date":dict["date"]}).sort("date",DESCENDING)) for j in image_list if i['image'] == j['image']]
+            image_list = [i for i in list(image_db_table.find({"date":dict["date"]})) for j in image_list if i['image'] == j['image']]
 
     if "tags" in dict:
-        image_list = [i for i in list(image_db_table.find({"tags": dict["tags"]}).sort("date",DESCENDING)) for j in image_list if i['image'] == j['image']]
+        if "," in dict["tags"]:
+            tag_list = dict["tags"].split(",")
+            images_with_tags = []
+            for tag in tag_list:
+                images_with_tags.extend(list(image_db_table.find({"tags": tag}).sort("date",DESCENDING)))
+            image_list = [i for i in images_with_tags for j in image_list if i['image'] == j['image']]
+        else:
+            image_list = [i for i in list(image_db_table.find({"tags": dict["tags"]})) for j in image_list if i['image'] == j['image']]
 
     if "desc" in dict:
-        image_list = [i for i in list(image_db_table.find({"description": dict["desc"]}).sort("date",DESCENDING)) for j in image_list if i['image']==j['image']]
-    return render_template("myview.html",image_names=zip([d['image'] for d in image_list],[d['tags'] for d in image_list],[d['description'] for d in image_list]))
+        image_list = [i for i in list(image_db_table.find({"description": dict["desc"]})) for j in image_list if i['image']==j['image']]
+    image_list = sorted(image_list[:31], key=lambda x: x["date"], reverse=True)
+    return render_template("myview.html",image_names=zip([d['image'] for d in image_list],[d['tags'] for d in image_list],[d['description'] for d in image_list],[d['date'] for d in image_list]))
 
 if __name__ == '__main__':
     app.debug = True
