@@ -32,7 +32,7 @@ def get_tags(path):
     js = json.loads(res.text)
     tags = []
     if "result" not in js:
-        return "could not be tagged"
+        return tags.extend(request.form["description"].split())
     for k in js['result']['tags']:
         if k['confidence'] > 40.0:
             tags.append(k['tag']['en'])
