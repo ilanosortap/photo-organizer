@@ -20,6 +20,7 @@
   <h2 class="hero-heading">Stock Image Service</h2>
   <form class="form-container form-container-1"  action = "/upload" method = "POST" enctype = "multipart/form-data">
      <input class="file-1" type = "file" name = "upload" multiple/>
+     <input value="" name="description" type="text" class="input-1" placeholder="Enter description here">
      <button type="submit" class="button" name="upload">
       <span class="button-text-1">Upload</span>
     </button>
@@ -37,13 +38,12 @@
 
     <div class="container info-container">
       <a href="#" class="responsive-picture picture-link-1">
-        <picture>
-         <!-- <img alt="results" src="data:image/jpeg;base64,{{ url }}">-->
-          <img src="data:image/jpeg;base64,{{url}}" id="img" alt="Chart" height="100" width="100">
+        <figure>
+         <img alt="results" src="data:image/jpeg;base64,{{ url[0] }}">
+          <figcaption> tags: {{url[1]}}, description:{{url[2]}}</figcaption>
 
 
-
-        </picture>
+        </figure>
       </a>
 
     </div>

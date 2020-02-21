@@ -496,6 +496,13 @@ input[type=file].file-1 {
     height: 30px;
   }
 
+  input[type=text].input-1 {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 40%;
+    height: 30px;
+  }
+
   /* Layout Elements */
 
   body.body-1 {
@@ -580,7 +587,7 @@ input[type=file].file-1 {
     display: block;
     float: none;
     margin: 20px 0 1rem 90px;
-    width: 40%;
+    width: 20%;
     height: 30px;
   }
 
