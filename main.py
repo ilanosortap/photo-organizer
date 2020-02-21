@@ -1,5 +1,5 @@
 import os
-from flask import Flask, flash
+from flask import Flask, flash, redirect
 import requests
 from flask import request,render_template
 import json
@@ -23,6 +23,11 @@ def get_tags(path):
     api_key = 'acc_dba37e986089381'
     api_secret = '2de7869e3e57eb42edf4dc2f982a9a86'
     image_path = path
+
+    if os.path.isdir(path):
+        print("yes")
+        flash("select images to upload")
+        return redirect("/")
 
     res = requests.post(
         'https://api.imagga.com/v2/tags',
@@ -54,22 +59,29 @@ def upload():
             flash("select some images to upload")
         for upload in request.files.getlist("upload"): #multiple image handel
             filename = secure_filename(upload.filename)
+            print(filename)
+            if os.path.isdir(filename):
+                print("yes")
+                flash("select images to upload")
+                return redirect("/")
+
             destination = "".join([target, filename])
             try:
                 upload.save(destination)
             except:
                 flash("select some images to upload")
-            tags = get_tags(destination)
-            foo = Image.open(destination)
-            foo = foo.resize((240,240),Image.ANTIALIAS)
+            try:
+                foo = Image.open(destination)
+                foo = foo.resize((240,240),Image.ANTIALIAS)
+            except:
+                return redirect("/")
             os.remove(destination)
             foo.save(destination)
-            try:
-                with open(destination,"rb") as image:
-                    image_string = base64.b64encode(image.read())
-            except:
-                flash("Images havent been selected to upload or the selected file is not an image")
 
+            with open(destination,"rb") as image:
+                image_string = base64.b64encode(image.read())
+
+            tags = get_tags(destination)
             today = datetime.today().strftime("%d-%m-%Y")
             description = request.form["description"]
             image_db_table.insert({'image': image_string.decode('utf-8'), 'tags': tags,'date': today, 'description':description})   #insert into database mongo db
