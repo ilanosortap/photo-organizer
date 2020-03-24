@@ -44,7 +44,10 @@ def get_tags(path):
 
 @app.route("/")
 def main():
-    image_list = sorted(list(db.images.find())[:31], key = lambda x:x["date"], reverse=True)
+    #image_list = sorted(list(db.images.find()), key = lambda x:x["date"], reverse=True)[:31]
+    image_list = list(db.images.find().sort('n_date',DESCENDING))[:31]
+    for i in image_list:
+        print(i["n_date"],end=" ")
     return render_template("myview.html",image_names=zip([d['image'] for d in image_list],[d['tags'] for d in image_list],[d['description'] for d in image_list],[d['date'] for d in image_list]))
 
 @app.route('/upload', methods=['POST'])
@@ -81,12 +84,12 @@ def upload():
                 image_string = base64.b64encode(image.read())
 
             tags = get_tags(destination)
-            today = datetime.today().strftime("%d-%m-%Y")
+            today = datetime.today()
             description = request.form["description"]
-            image_db_table.insert({'image': image_string.decode('utf-8'), 'tags': tags,'date': today, 'description':description})   #insert into database mongo db
+            image_db_table.insert({'image': image_string.decode('utf-8'), 'tags': tags,'date': today.strftime("%d-%m-%Y"),'n_date':today, 'description':description})   #insert into database mongo db
             os.remove(destination)
 
-        image_list = sorted(list(db.images.find())[:31], key = lambda x:x["date"], reverse=True)
+        image_list = list(db.images.find().sort('n_date',DESCENDING))[:31]
         return render_template("myview.html",image_names=zip([d['image'] for d in image_list], [d['tags'] for d in image_list],[d['description'] for d in image_list], [d['date'] for d in image_list]))
 
 
@@ -110,11 +113,11 @@ def search():
 
 
     if not dict:
-        image_list = sorted(list(db.images.find())[:31], key = lambda x:x["date"], reverse=True)
+        image_list = list(db.images.find().sort('n_date',DESCENDING))[:31]
         return render_template("myview.html",image_names=zip([d['image'] for d in image_list], [d['tags'] for d in image_list],[d['description'] for d in image_list], [d['date'] for d in image_list]))
 
 
-    image_list = list(image_db_table.find().sort("date",DESCENDING))
+    image_list = list(image_db_table.find().sort("n_date",DESCENDING))
 
     if "from" in dict:
         image_list = [i for i in list(image_db_table.find({"date":{"$gte":dict["from"],"$lt":dict["to"]}}).sort("date",DESCENDING)) for j in image_list if i['image'] == j['image']]
@@ -160,8 +163,8 @@ def search():
 
     if "description" in dict:
         image_list = [i for i in list(image_db_table.find({"description": dict["description"]})) for j in image_list if i['image']==j['image']]
-    image_list = sorted(image_list[:31], key=lambda x: x["date"], reverse=True)
-    return render_template("myview.html",image_names=zip([d['image'] for d in image_list],[d['tags'] for d in image_list],[d['description'] for d in image_list],[d['date'] for d in image_list]))
+    image_list = sorted(image_list, key=lambda x: x["date"], reverse=True)[:31]
+    return render_template("myview.html", image_names=zip([d['image'] for d in image_list],[d['tags'] for d in image_list],[d['description'] for d in image_list],[d['date'] for d in image_list]))
 
 
 if __name__ == '__main__':
