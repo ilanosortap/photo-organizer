@@ -46,8 +46,6 @@ def get_tags(path):
 def main():
     #image_list = sorted(list(db.images.find()), key = lambda x:x["date"], reverse=True)[:31]
     image_list = list(db.images.find().sort('n_date',DESCENDING))[:31]
-    for i in image_list:
-        print(i["n_date"],end=" ")
     return render_template("myview.html",image_names=zip([d['image'] for d in image_list],[d['tags'] for d in image_list],[d['description'] for d in image_list],[d['date'] for d in image_list]))
 
 @app.route('/upload', methods=['POST'])
@@ -120,19 +118,23 @@ def search():
     image_list = list(image_db_table.find().sort("n_date",DESCENDING))
 
     if "from" in dict:
-        image_list = [i for i in list(image_db_table.find({"date":{"$gte":dict["from"],"$lt":dict["to"]}}).sort("date",DESCENDING)) for j in image_list if i['image'] == j['image']]
-
+        image_list = image_db_table.find({"n_date":{"$gte":datetime.strptime(dict["from"], "%d-%m-%Y"),"$lt":datetime.strptime(dict["to"], "%d-%m-%Y")}}).sort("n_date",DESCENDING)
     if "date" in dict:
         d,m,y = dict["date"].split("-")
+        print(d,m,y)
         if d == "*":
+            if m == 2:
+                end = 28
+
             for i in range(31,0,-1):
                 if len(str(i))==1:
                     new_date = "0"+str(i)+"-"+m+"-"+y
                 else:
                     new_date = str(i) + "-" + m + "-" + y
-                images = image_db_table.find({"date": new_date})
+                images = image_db_table.find({"n_date": datetime.strptime(new_date, "%d-%m-%Y")})
                 if images:
                     image_list = [i for i in list(images) for j in image_list if i['image'] == j['image']]
+                    print(image_list)
         elif m == "*":
             for i in range(12,0,-1):
                 if len(str(i))==1:

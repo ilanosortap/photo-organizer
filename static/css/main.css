@@ -22,7 +22,7 @@ h2.hero-heading {
   color: #00a3d7;
   text-align: center;
   font-size: 25px;
-  font-family: 'Chelsea Market', cursive;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h2 span.highlight-blue {
@@ -464,7 +464,7 @@ input[type=file].file-1 {
     padding-top: 80px;
     font-weight: 800;
     font-size: 28px;
-    font-family: 'Brush Script MT', cursive;
+    font-family: 'Montserrat', sans-serif;
   }
 
   p.paragraph.footer-paragraph {

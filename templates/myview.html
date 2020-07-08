@@ -13,11 +13,12 @@
   <script class="picturefill" async="async" src="../static/js/picturefill.min.js"></script>
   <link rel="stylesheet" href="../static/css/main.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chelsea+Market%7CRoboto">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap" >
 </head>
 
 <body class="no-js">
 {{ toastr.include_toastr_js() }}
-  <h2 class="hero-heading">Stock Image Service</h2>
+  <h2 class="hero-heading" style="font-family: 'Montserrat',sans-serif;">Photo Organizer</h2>
   <form class="form-container form-container-1"  action = "/upload" method = "POST" enctype = "multipart/form-data">
      <input class="file-1" type = "file" name = "upload" multiple/>
      <input value="" name="description" type="text" class="input-1" placeholder="Enter description here">

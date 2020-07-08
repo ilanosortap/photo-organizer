@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="916c4fbe-ff8e-492f-80e8-57cd3da54171" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/convert.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trial.py" beforeDir="false" afterPath="$PROJECT_DIR$/trial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/myview.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/myview.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,8 +131,8 @@
       <item itemvalue="JavaScript Debug.gallery.html" />
       <item itemvalue="JavaScript Debug.myview.html" />
       <item itemvalue="JavaScript Debug.sample.html" />
-      <item itemvalue="Python.trial" />
       <item itemvalue="Python.convert" />
+      <item itemvalue="Python.trial" />
     </list>
     <recent_temporary>
       <list>
@@ -164,7 +164,11 @@
       <workItem from="1583220107877" duration="349000" />
       <workItem from="1583752569593" duration="1964000" />
       <workItem from="1585072531127" duration="1832000" />
-      <workItem from="1585074457540" duration="252000" />
+      <workItem from="1585074457540" duration="768000" />
+      <workItem from="1585081186458" duration="6000" />
+      <workItem from="1587405331091" duration="21000" />
+      <workItem from="1589379452904" duration="1443000" />
+      <workItem from="1589381245906" duration="1409000" />
     </task>
     <servers />
   </component>
@@ -199,40 +203,44 @@
     <state x="578" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.957@0.23.1680.957" timestamp="1581936915336" />
     <state x="578" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.959@0.23.1680.959" timestamp="1581964022237" />
     <state x="578" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.961@0.23.1680.961" timestamp="1582136124172" />
-    <state width="1638" height="242" key="GridCell.Tab.0.bottom" timestamp="1585074705979">
-      <screen x="0" y="23" width="1680" height="957" />
+    <state x="418" y="103" key="CommitChangelistDialog2" timestamp="1589380096954">
+      <screen x="0" y="23" width="1680" height="955" />
+    </state>
+    <state x="418" y="103" key="CommitChangelistDialog2/0.23.1680.955@0.23.1680.955" timestamp="1589380096954" />
+    <state width="1638" height="241" key="GridCell.Tab.0.bottom" timestamp="1589382433389">
+      <screen x="0" y="23" width="1680" height="955" />
     </state>
     <state width="1638" height="243" key="GridCell.Tab.0.bottom/0.23.1680.948@0.23.1680.948" timestamp="1582106183215" />
     <state width="1638" height="243" key="GridCell.Tab.0.bottom/0.23.1680.953@0.23.1680.953" timestamp="1583219973152" />
-    <state width="1638" height="242" key="GridCell.Tab.0.bottom/0.23.1680.955@0.23.1680.955" timestamp="1583757957938" />
-    <state width="1638" height="242" key="GridCell.Tab.0.bottom/0.23.1680.957@0.23.1680.957" timestamp="1585074705979" />
+    <state width="1638" height="241" key="GridCell.Tab.0.bottom/0.23.1680.955@0.23.1680.955" timestamp="1589382433389" />
+    <state width="1638" height="242" key="GridCell.Tab.0.bottom/0.23.1680.957@0.23.1680.957" timestamp="1585075303722" />
     <state width="1638" height="243" key="GridCell.Tab.0.bottom/0.23.1680.959@0.23.1680.959" timestamp="1582289150632" />
     <state width="1638" height="242" key="GridCell.Tab.0.bottom/0.23.1680.961@0.23.1680.961" timestamp="1583937942403" />
-    <state width="1638" height="242" key="GridCell.Tab.0.center" timestamp="1585074705977">
-      <screen x="0" y="23" width="1680" height="957" />
+    <state width="1638" height="241" key="GridCell.Tab.0.center" timestamp="1589382433388">
+      <screen x="0" y="23" width="1680" height="955" />
     </state>
     <state width="1638" height="243" key="GridCell.Tab.0.center/0.23.1680.948@0.23.1680.948" timestamp="1582106183214" />
     <state width="1638" height="243" key="GridCell.Tab.0.center/0.23.1680.953@0.23.1680.953" timestamp="1583219973152" />
-    <state width="1638" height="242" key="GridCell.Tab.0.center/0.23.1680.955@0.23.1680.955" timestamp="1583757957937" />
-    <state width="1638" height="242" key="GridCell.Tab.0.center/0.23.1680.957@0.23.1680.957" timestamp="1585074705977" />
+    <state width="1638" height="241" key="GridCell.Tab.0.center/0.23.1680.955@0.23.1680.955" timestamp="1589382433388" />
+    <state width="1638" height="242" key="GridCell.Tab.0.center/0.23.1680.957@0.23.1680.957" timestamp="1585075303720" />
     <state width="1638" height="243" key="GridCell.Tab.0.center/0.23.1680.959@0.23.1680.959" timestamp="1582289150631" />
     <state width="1638" height="242" key="GridCell.Tab.0.center/0.23.1680.961@0.23.1680.961" timestamp="1583937942402" />
-    <state width="1638" height="242" key="GridCell.Tab.0.left" timestamp="1585074705976">
-      <screen x="0" y="23" width="1680" height="957" />
+    <state width="1638" height="241" key="GridCell.Tab.0.left" timestamp="1589382433388">
+      <screen x="0" y="23" width="1680" height="955" />
     </state>
     <state width="1638" height="243" key="GridCell.Tab.0.left/0.23.1680.948@0.23.1680.948" timestamp="1582106183214" />
     <state width="1638" height="243" key="GridCell.Tab.0.left/0.23.1680.953@0.23.1680.953" timestamp="1583219973151" />
-    <state width="1638" height="242" key="GridCell.Tab.0.left/0.23.1680.955@0.23.1680.955" timestamp="1583757957936" />
-    <state width="1638" height="242" key="GridCell.Tab.0.left/0.23.1680.957@0.23.1680.957" timestamp="1585074705976" />
+    <state width="1638" height="241" key="GridCell.Tab.0.left/0.23.1680.955@0.23.1680.955" timestamp="1589382433388" />
+    <state width="1638" height="242" key="GridCell.Tab.0.left/0.23.1680.957@0.23.1680.957" timestamp="1585075303689" />
     <state width="1638" height="243" key="GridCell.Tab.0.left/0.23.1680.959@0.23.1680.959" timestamp="1582289150631" />
     <state width="1638" height="242" key="GridCell.Tab.0.left/0.23.1680.961@0.23.1680.961" timestamp="1583937942401" />
-    <state width="1638" height="242" key="GridCell.Tab.0.right" timestamp="1585074705978">
-      <screen x="0" y="23" width="1680" height="957" />
+    <state width="1638" height="241" key="GridCell.Tab.0.right" timestamp="1589382433389">
+      <screen x="0" y="23" width="1680" height="955" />
     </state>
     <state width="1638" height="243" key="GridCell.Tab.0.right/0.23.1680.948@0.23.1680.948" timestamp="1582106183215" />
     <state width="1638" height="243" key="GridCell.Tab.0.right/0.23.1680.953@0.23.1680.953" timestamp="1583219973152" />
-    <state width="1638" height="242" key="GridCell.Tab.0.right/0.23.1680.955@0.23.1680.955" timestamp="1583757957937" />
-    <state width="1638" height="242" key="GridCell.Tab.0.right/0.23.1680.957@0.23.1680.957" timestamp="1585074705978" />
+    <state width="1638" height="241" key="GridCell.Tab.0.right/0.23.1680.955@0.23.1680.955" timestamp="1589382433389" />
+    <state width="1638" height="242" key="GridCell.Tab.0.right/0.23.1680.957@0.23.1680.957" timestamp="1585075303721" />
     <state width="1638" height="243" key="GridCell.Tab.0.right/0.23.1680.959@0.23.1680.959" timestamp="1582289150632" />
     <state width="1638" height="242" key="GridCell.Tab.0.right/0.23.1680.961@0.23.1680.961" timestamp="1583937942402" />
     <state width="1638" height="317" key="GridCell.Tab.1.bottom" timestamp="1581860346623">
@@ -261,13 +269,17 @@
       <screen x="0" y="23" width="1680" height="957" />
     </state>
     <state x="680" y="409" key="WebDeployment.AddServerDialog.v.1/0.23.1680.957@0.23.1680.957" timestamp="1582116131113" />
-    <state x="517" y="335" key="com.intellij.ide.util.TipDialog" timestamp="1585074457251">
-      <screen x="0" y="23" width="1680" height="957" />
+    <state x="517" y="335" key="com.intellij.ide.util.TipDialog" timestamp="1589381246579">
+      <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state x="517" y="335" key="com.intellij.ide.util.TipDialog/0.23.1680.955@0.23.1680.955" timestamp="1583221741431" />
-    <state x="517" y="335" key="com.intellij.ide.util.TipDialog/0.23.1680.957@0.23.1680.957" timestamp="1585074457251" />
+    <state x="517" y="335" key="com.intellij.ide.util.TipDialog/0.23.1680.955@0.23.1680.955" timestamp="1589381246579" />
+    <state x="517" y="335" key="com.intellij.ide.util.TipDialog/0.23.1680.957@0.23.1680.957" timestamp="1585081187640" />
     <state x="517" y="359" key="com.intellij.ide.util.TipDialog/0.23.1680.959@0.23.1680.959" timestamp="1582108473088" />
     <state x="517" y="337" key="com.intellij.ide.util.TipDialog/0.23.1680.961@0.23.1680.961" timestamp="1582272192976" />
+    <state x="544" y="187" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589381994858">
+      <screen x="0" y="23" width="1680" height="955" />
+    </state>
+    <state x="544" y="187" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1680.955@0.23.1680.955" timestamp="1589381994858" />
     <state x="505" y="244" width="670" height="676" key="search.everywhere.popup" timestamp="1582146360137">
       <screen x="0" y="23" width="1680" height="961" />
     </state>
@@ -277,7 +289,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/StockImageService$trial.coverage" NAME="trial Coverage Results" MODIFIED="1582288630350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/untitled$trial.coverage" NAME="trial Coverage Results" MODIFIED="1582115439633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/StockImageService$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1585074498524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/StockImageService$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1589382433380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/StockImageService$convert.coverage" NAME="convert Coverage Results" MODIFIED="1585073767753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/untitled$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1582187852757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/StockImageService$Flask__main_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1585074272469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
